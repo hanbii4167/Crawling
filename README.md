@@ -54,13 +54,66 @@
 - `NumPy`, `Pandas`: 데이터 처리 및 분석
 - `Matplotlib`, `Seaborn`: 데이터 시각화
 
+## 🔈 실행방법 
+▶️  Colab에서 실행하는 경우
+- 위 코드처럼 google.colab을 이용하여 Google Drive를 마운트하고
+- 데이터를 data/ 폴더에 저장한 후 실행합니다!
+
+▶️  로컬 환경에서 실행하는 경우
+-  data/ 폴더에 데이터를 저장 후, torch, timm 등을 설치하고 실행합니다!
+
+'''
+
+    pip install timm torch torchvision opencv-python matplotlib tqdm
+'''
+        
+
 ## 🔬 분석 대상 및 작동 방식
-- **분석 대상**: 가수 임재범과 성대모사 전문가 정성호의 영상 데이터
+- **분석 대상**: 가수 임재범과 성대모사 전문 개그맨 정성호의 영상 데이터
 - **분석 방식**:
   1. 영상 데이터를 프레임 단위로 추출
   2. 얼굴 인식 및 특징 추출 (`OpenCV` 활용)
   3. CNN(합성곱 신경망) 모델을 활용한 인물 분류
   4. 모델 성능 평가 및 시각화
+- **작동 방식**!
+'''
+
+      train_root = f'{data_root}/train'
+
+      valid_root = f'{data_root}/valid'
+
+      test_root = f'{data_root}/test'
+
+      for folder in [train_root, valid_root, test_root]:]
+  
+      if not os.path.exists(folder):
+     
+        os.makedirs(folder) 
+'''       
+➡️ 데이터셋을 학습(train) / 검증(valid) / 테스트(test) 폴더로 분할합니다.
+
+'''
+
+    import timm
+
+    model = timm.create_model('resnet50', pretrained=True)
+'''
+➡️ timm 라이브러리를 활용하여 ResNet-50 모델을 불러오고 전이 학습을 적용합니다.
+
+## 💻 프로젝트 구조
+📁 프로젝트 폴더
+│── 📄 정성호 vs 임재범.ipynb  # 이미지 분류 모델 학습
+
+│── 📄 Crawling.ipynb           # (예상) 데이터 수집을 위한 웹 크롤링
+
+│── 📁 data                     # 원본 데이터 저장 폴더
+
+│── 📁 train                    # 학습 데이터
+
+│── 📁 valid                    # 검증 데이터
+
+│── 📁 test                     # 테스트 데이터
+
 
 ## 🚀 프로젝트 목표
 - **영상 기반 인물 분류**: 두 인물의 얼굴 및 영상적 특징을 머신러닝 모델로 분석
@@ -82,107 +135,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 프로젝트 구조
-📁 프로젝트 폴더
-│── 📄 정성호 vs 임재범.ipynb  # 이미지 분류 모델 학습
-
-│── 📄 Crawling.ipynb           # (예상) 데이터 수집을 위한 웹 크롤링
-
-│── 📁 data                     # 원본 데이터 저장 폴더
-
-│── 📁 train                    # 학습 데이터
-
-│── 📁 valid                    # 검증 데이터
-
-│── 📁 test                     # 테스트 데이터
-
-
-
-## 작동방식
-'''
-
-    train_root = f'{data_root}/train'
-
-    valid_root = f'{data_root}/valid'
-
-    test_root = f'{data_root}/test'
-
-    for folder in [train_root, valid_root, test_root]:]
-  
-    if not os.path.exists(folder):
-    
-        os.makedirs(folder) 
-'''
-        
-➡️ 데이터셋을 학습(train) / 검증(valid) / 테스트(test) 폴더로 분할합니다.
-
-'''
-
-    import timm
-
-    model = timm.create_model('resnet50', pretrained=True)
-'''
-
-➡️ timm 라이브러리를 활용하여 ResNet-50 모델을 불러오고 전이 학습을 적용합니다.
-
-## 실행방법 
-▶️  Colab에서 실행하는 경우
-- 위 코드처럼 google.colab을 이용하여 Google Drive를 마운트하고
-- 데이터를 data/ 폴더에 저장한 후 실행합니다!
-
-▶️  로컬 환경에서 실행하는 경우
--  data/ 폴더에 데이터를 저장 후, torch, timm 등을 설치하고 실행합니다!
-
-'''
-
-    pip install timm torch torchvision opencv-python matplotlib tqdm
-'''
-        
