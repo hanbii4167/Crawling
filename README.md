@@ -67,4 +67,9 @@
 
 ▶️  로컬 환경에서 실행하는 경우
 -  data/ 폴더에 데이터를 저장 후, torch, timm 등을 설치하고 실행합니다!
+
+'''
+
+    pip install timm torch torchvision opencv-python matplotlib tqdm
+'''
         
